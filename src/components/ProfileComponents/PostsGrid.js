@@ -22,9 +22,7 @@ export default function PostsGrid({ setSelectedImg }) {
     <div className="profile-post-section">
       <div className="img-grid">
         {userPosts && userPosts?.map(({ id, post }) => (
-          <div className="img-wrap" key={id}
-            onClick={() => setSelectedImg(post?.image)}
-          >
+          <div className="img-wrap" key={id}>
             <p>{post?.caption}</p>
           </div>
         ))}

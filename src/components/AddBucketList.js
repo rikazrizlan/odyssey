@@ -22,15 +22,12 @@ function AddBucketList({ setOpen, open }) {
 
     return (
         <div className={open ? "bucket-list-main" : "bucket-list-hide"}>
-            <ArrowBack style={{margin: 10}} onClick={() => setOpen(false)} />
+            <ArrowBack style={{ margin: 10 }} onClick={() => setOpen(false)} />
             <center>Your Goals?</center>
             <form className="bucket-form">
                 <div className="bucket-input">
                     <input onChange={event => setBucketList(event.target.value)} value={bucketList} />
-                </div>
-                <div className="btn-container">
-                    <Button onClick={() => setOpen(false)} variant="contained" color="primary">Cancel</Button>
-                    <Button className="btn-2" variant="contained" color="secondary" onClick={handleUpload}>+</Button>
+                    <span className="input-btn" onClick={handleUpload}>+</span>
                 </div>
             </form>
             <BucketList />

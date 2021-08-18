@@ -35,11 +35,10 @@ function AddPost({ setOpen }) {
             {
                 profileImage ?
                     <>
-                        <center>Share your thoughts?</center>
+                        <center>Share your thoughts</center>
                         <form className="post-form">
                             <div className="form-group">
-                                <label htmlFor="caption">Say something...</label>
-                                <textarea onChange={event => setCaption(event.target.value)} value={caption}></textarea>
+                                <textarea className="txt-area" onChange={event => setCaption(event.target.value)} value={caption}></textarea>
                             </div>
                             <div className="btn-container">
                                 <Button onClick={() => setOpen(false)} variant="contained" color="primary">Cancel</Button>
