@@ -261,10 +261,12 @@ form .btn {
 
 .post-container {
   max-width: 500px;
-  background-color: #fff;
-  border-radius: 3px;
   margin-bottom: 20px;
-  box-shadow: 0px 146px 301px rgba(0, 0, 0, 0.00627293), 0px 70.0611px 161.499px rgba(0, 0, 0, 0.01003), 0px 50.2001px 115.641px rgba(0, 0, 0, 0.0129306), 0px 36.9442px 86.8083px rgba(0, 0, 0, 0.016152), 0px 25.2423px 61.0519px rgba(0, 0, 0, 0.0214916), 0px 13.2337px 33.0022px rgba(0, 0, 0, 0.04);
+  transition: all 0.5s ease;
+  background: #FAFAFA;
+  box-shadow: 0px 146px 301px rgba(0, 0, 0, 0.00627293), 0px 70.0611px 161.499px rgba(0, 0, 0, 0.01003), 0px 50.2001px 115.641px rgba(0, 0, 0, 0.0129306), 0px 36.9442px 86.8083px rgba(0, 0, 0, 0.016152), 0px 25.2423px 61.0519px rgba(0, 0, 0, 0.0214916), 0px 13.2337px 33.0022px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .post-header {
@@ -306,15 +308,15 @@ form .btn {
 
 .profile-header-section {
   width: 100%;
-  height: 200px;
+  height: 180px;
   display: flex;
   justify-content: space-between;
   padding: 20px;
 }
 
 .profile-header-section .user-details {
+  margin-top: 10px;
   display: flex;
-  /* width: 18%; */
   justify-content: space-around;
 }
 
