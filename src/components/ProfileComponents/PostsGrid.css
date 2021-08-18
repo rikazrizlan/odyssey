@@ -1,0 +1,35 @@
+/* image grid styles */
+.img-grid {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+  }
+  
+  @media screen and (max-width: 760px) {
+    .title h1{
+      margin-left: 10px;
+    }
+    .img-grid {
+      margin: 10px;
+      grid-gap: 10px;
+    }
+  }
+  
+  .img-wrap {
+    overflow: hidden;
+    height: 100px;
+    padding: 50% 0;
+    position: relative;
+    box-shadow: 0px 146px 301px rgba(0, 0, 0, 0.00627293), 0px 70.0611px 161.499px rgba(0, 0, 0, 0.01003), 0px 50.2001px 115.641px rgba(0, 0, 0, 0.0129306), 0px 36.9442px 86.8083px rgba(0, 0, 0, 0.016152), 0px 25.2423px 61.0519px rgba(0, 0, 0, 0.0214916), 0px 13.2337px 33.0022px rgba(0, 0, 0, 0.04);
+  }
+  
+  .img-wrap img {
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    object-fit: contain;
+  }
