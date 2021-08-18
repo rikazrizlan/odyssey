@@ -25,7 +25,7 @@ export default function PostsGrid({ setSelectedImg }) {
           <div className="img-wrap" key={id}
             onClick={() => setSelectedImg(post?.image)}
           >
-            <img src={post?.image} alt="Posts" />
+            <p>{post?.caption}</p>
           </div>
         ))}
       </div>

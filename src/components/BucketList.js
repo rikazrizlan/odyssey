@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
 import { Delete, Done} from '@material-ui/icons';
+import LearningGuy from '../images/learningguy.png';
 import '../App.css';
 
 function BucketList() {
@@ -34,6 +35,7 @@ function BucketList() {
                     ))
                 }
             </ul>
+            <img src={LearningGuy} alt="Man vector" />
         </div>
     )
 }

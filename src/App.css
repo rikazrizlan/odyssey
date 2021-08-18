@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 body {
   width: 100%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .App {
@@ -165,7 +165,7 @@ form .btn {
 }
 
 .home {
-  background: lightgray;
+  background: #FAFAFA;
 }
 
 .home-header {
@@ -250,30 +250,33 @@ form .btn {
 .post-container {
   max-width: 500px;
   background-color: #fff;
-  border: 1px solid lightgray;
-  margin-bottom: 45px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  box-shadow: 0px 146px 301px rgba(0, 0, 0, 0.00627293), 0px 70.0611px 161.499px rgba(0, 0, 0, 0.01003), 0px 50.2001px 115.641px rgba(0, 0, 0, 0.0129306), 0px 36.9442px 86.8083px rgba(0, 0, 0, 0.016152), 0px 25.2423px 61.0519px rgba(0, 0, 0, 0.0214916), 0px 13.2337px 33.0022px rgba(0, 0, 0, 0.04);
 }
 
 .post-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 15px; 
 }
 
-.post-avatar {
-  margin-right: 10px;
+.post-header h4 {
+  color: #4d4d4d;
+  text-transform: lowercase;
 }
 
-.post-img {
-  width: 100%;
-  object-fit: contain;
-  border-top: 1px solid lightgray; 
-  border-bottom: 1px solid lightgray; 
+.post-avatar {
+  margin-right: 8px;
 }
 
 .post-text {
   font-weight: normal;
-  padding: 20px;
+  margin-left: 60px;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 14px;
 }
 
 .post-text strong {
@@ -332,8 +335,14 @@ form .btn {
 .bucket-list-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   margin-top: -90px;
+}
+
+.bucket-list-container img {
+  height: 300px;
+  object-fit: contain;
 }
 
 .bucket-list {

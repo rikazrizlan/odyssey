@@ -61,7 +61,7 @@ function ProfileHeader() {
           <h2 className="profile-name">@{currentUser?.displayName}</h2>
         </div>
         <div className="profile-btn-container">
-          <Button onClick={() => setOpen(true)} style={{ height: 30, margin: 10 }} variant="outlined">Bucket List</Button>
+          <Button onClick={() => setOpen(true)} style={{ height: 30, margin: 10 }} variant="outlined">Goals</Button>
           <Button style={{ height: 30, margin: 10 }} variant="outlined">Edit Profile</Button>
           <Button style={{ height: 30 }} variant="outlined">Settings</Button>
         </div>

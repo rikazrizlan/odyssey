@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import { Button, makeStyles, Modal} from '@material-ui/core';
+import MeditationImg from '../images/meditation.png';
 import HikingImg from '../images/hiking2.png';
 import Logo from '../images/logo.png';
 import {useAuth} from '../contexts/AuthContext';
@@ -149,11 +150,11 @@ function App() {
       <section className="banner" id="banner">
           <div className="content"> 
             <div className="info">
-              <h2>Get connected with fellow travellers.</h2>
+              <h2>Get Connected With Your Inner Core.</h2>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id alias optio pariatur, quia laudantium sapiente nam quaerat illo veritatis voluptates itaque cupiditate ipsum exercitationem consectetur, vel qui iste provident placeat.</p>
               <Button variant="contained" color="secondary" onClick={() => setOpen(true)}>Get Started</Button>
             </div>
-            <img src={HikingImg} alt="Hiking"/>
+            <img src={MeditationImg} alt="Meditating"/>
           </div>
       </section>
       {/* Home banner */}

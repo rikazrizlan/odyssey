@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom';
 function AddPost({ setOpen }) {
     const [caption, setCaption] = useState("");
     const [profileImage, setProfileImage] = useState();
-    const [image, setImage] = useState(null);
-    const [progress, setProgress] = useState(0);
     const { currentUser } = useAuth();
 
     useEffect(() => {
@@ -19,46 +17,16 @@ function AddPost({ setOpen }) {
         })
     }, []);
 
-    const handleChange = (e) => {
-        console.log(e.target.files)
-        console.log(currentUser);
-        if (e.target.files[0]) {
-            setImage(e.target.files[0]);
-        }
-    }
-
-    const imageId = Math.random();
-
     const handleUpload = () => {
-        const uploadTask = storage.ref(`images/${imageId+image.name}`).put(image);
-        console.log(image);
-
-        uploadTask.on("state_changed", (snapshot) => {
-            //progress logic
-            const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-            setProgress(progress);
-        }, (error) => {
-            console.log(error);
-        }, () => {
-            storage
-                .ref("images")
-                .child(imageId+image.name)
-                .getDownloadURL()
-                .then(url => {
-                    //post image inside db
-                    db.collection("posts").add({
-                        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-                        caption: caption,
-                        image: url,
-                        username: currentUser?.displayName,
-                        profileImage: profileImage
-                    });
-                    setProgress(0);
-                    setImage(null);
-                    setCaption("");
-                    setOpen(false);
-                })
-        })
+        //post text into db
+        db.collection("posts").add({
+            timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+            caption: caption,
+            username: currentUser?.displayName,
+            profileImage: profileImage
+        });
+        setCaption("");
+        setOpen(false);
     }
 
 
@@ -67,13 +35,8 @@ function AddPost({ setOpen }) {
             {
                 profileImage ?
                     <>
-                        <center>Where were you?</center>
-                        <progress className="progress-bar" value={progress} max="100" />
+                        <center>Share your thoughts?</center>
                         <form className="post-form">
-                            <div className="form-group">
-                                <label htmlFor="choose-image">Choose image</label>
-                                <input type="file" onChange={handleChange} required />
-                            </div>
                             <div className="form-group">
                                 <label htmlFor="caption">Say something...</label>
                                 <textarea onChange={event => setCaption(event.target.value)} value={caption}></textarea>
@@ -85,8 +48,8 @@ function AddPost({ setOpen }) {
                         </form>
                     </> :
                     <>
-                    <center>To start posting you need a profile picture</center>
-                    <Link style={{textDecoration: "none", marginLeft: 70}} to="/profile"><Button variant="contained" color="primary">Profile</Button></Link>
+                        <center>To start posting you need a profile picture</center>
+                        <Link style={{ textDecoration: "none", marginLeft: 70 }} to="/profile"><Button variant="contained" color="primary">Profile</Button></Link>
                     </>
             }
         </div>

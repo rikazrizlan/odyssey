@@ -16,13 +16,15 @@ function Home() {
     })
   }, []);
 
+  console.log(posts);
+
   return (
     <div className="home">
       <Navbar />
       <div className="home-posts">
         {
           posts.map(({ id, post }) => (
-            <Post username={post?.username} key={id} image={post?.image} profileImage={post?.profileImage} caption={post?.caption} />
+            <Post username={post?.username} key={id} profileImage={post?.profileImage} caption={post?.caption} />
           ))
         }
       </div>
