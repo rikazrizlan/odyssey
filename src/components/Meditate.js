@@ -1,8 +1,4 @@
 import React, {useState} from 'react';
-// import PlayBtn from '../svg/play.svg';
-// import PauseBtn from '../svg/pause.svg';
-// import MovingOutline from '../svg/moving-outline.svg';
-// import TrackOutline from '../svg/track-outline.svg';
 import Beach from '../svg/beach.svg';
 import Rain from '../svg/rain.svg';
 import './Meditate.css';
