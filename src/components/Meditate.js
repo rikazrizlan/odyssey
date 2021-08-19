@@ -5,23 +5,19 @@ import React, {useState} from 'react';
 // import TrackOutline from '../svg/track-outline.svg';
 import Beach from '../svg/beach.svg';
 import Rain from '../svg/rain.svg';
-import RainVideo from '../videos/rain.mp4';
-import BeachVideo from '../videos/beach.mp4';
-import RainSound from '../sounds/rain.mp3';
-import BeachSound from '../sounds/beach.mp3';
 import './Meditate.css';
 
 const Meditate = () => {
-    const [theme, setTheme] = useState(true);
+    const [theme, setTheme] = useState(false);
 
     return (
         <div className="meditate-container">
             <div className="video-container">
                 <video autoPlay loop>
-                    <source play="true" src={theme === true? BeachVideo : RainVideo} type="video/mp4" />
+                    <source play="true" src={theme?"https://firebasestorage.googleapis.com/v0/b/odyssey-77723.appspot.com/o/videos%2Fbeach.mp4?alt=media&token=d83498b2-a5ff-4c1c-afa3-337ca6a31e9c":"https://firebasestorage.googleapis.com/v0/b/odyssey-77723.appspot.com/o/videos%2Frain.mp4?alt=media&token=14c76749-161c-43cf-87eb-531990ac37da"} type="video/mp4" />
                 </video>
                 <audio controls>
-                    <source play="true" src={theme === true? BeachSound : RainSound} type="audio/mp3" />
+                    <source play="true" src={theme === true? "https://firebasestorage.googleapis.com/v0/b/odyssey-77723.appspot.com/o/sounds%2Fbeach.mp3?alt=media&token=86ce88c1-9265-4fca-9706-e30ec42718fd" :"https://firebasestorage.googleapis.com/v0/b/odyssey-77723.appspot.com/o/sounds%2Frain.mp3?alt=media&token=d1900903-4645-427a-9563-9106cbbe682f"} type="audio/mp3" />
                 </audio>
             </div>
 
