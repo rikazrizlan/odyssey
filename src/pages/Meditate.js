@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 import Beach from '../svg/beach.svg';
 import Rain from '../svg/rain.svg';
+import { ArrowBack } from '@material-ui/icons';
 import './Meditate.css';
 
 const Meditate = () => {
@@ -8,6 +10,7 @@ const Meditate = () => {
 
     return (
         <div className="meditate-container">
+            <Link to="/home"><ArrowBack className="arrow-left"/></Link>
             <div className="video-container">
                 <video autoPlay loop>
                     <source play="true" src={theme?"https://firebasestorage.googleapis.com/v0/b/odyssey-77723.appspot.com/o/videos%2Fbeach.mp4?alt=media&token=d83498b2-a5ff-4c1c-afa3-337ca6a31e9c":"https://firebasestorage.googleapis.com/v0/b/odyssey-77723.appspot.com/o/videos%2Frain.mp4?alt=media&token=14c76749-161c-43cf-87eb-531990ac37da"} type="video/mp4" />

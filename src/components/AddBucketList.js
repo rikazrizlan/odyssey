@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core';
 import { ArrowBack } from '@material-ui/icons';
 import React, { useState } from 'react';
 import firebase from 'firebase/app';
@@ -22,15 +21,17 @@ function AddBucketList({ setOpen, open }) {
 
     return (
         <div className={open ? "bucket-list-main" : "bucket-list-hide"}>
-            <ArrowBack style={{ margin: 10 }} onClick={() => setOpen(false)} />
-            <center>Your Goals?</center>
-            <form className="bucket-form">
-                <div className="bucket-input">
-                    <input onChange={event => setBucketList(event.target.value)} value={bucketList} />
-                    <span className="input-btn" onClick={handleUpload}>+</span>
-                </div>
-            </form>
-            <BucketList />
+            <div className="bucket-wrapper">
+                <ArrowBack className="arrow-left" onClick={() => setOpen(false)} />
+                <center>Your Goals?</center>
+                <form className="bucket-form">
+                    <div className="bucket-input">
+                        <input onChange={event => setBucketList(event.target.value)} value={bucketList} />
+                        <span className="input-btn" onClick={handleUpload}>+</span>
+                    </div>
+                </form>
+                <BucketList />
+            </div>
         </div>
     )
 }

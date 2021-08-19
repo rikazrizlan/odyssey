@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import Post from '../components/Post';
 import Navbar from '../components/Navbar';
+import AddPost from '../components/AddPost';
 import '../App.css';
 
 function Home() {
@@ -16,12 +17,12 @@ function Home() {
     })
   }, []);
 
-  console.log(posts);
-
   return (
     <div className="home">
       <Navbar />
+     
       <div className="home-posts">
+      <AddPost />
         {
           posts.map(({ id, post }) => (
             <Post username={post?.username} key={id} profileImage={post?.profileImage} caption={post?.caption} />

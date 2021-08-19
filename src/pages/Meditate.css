@@ -1,10 +1,11 @@
 .meditate-container{
-    height: 70vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    padding: 20px;
 }
 
 .time-select, .sound-picker{
@@ -13,34 +14,6 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: -100px;
-}
-
-.player-container {
-    position: absolute;
-    top: -150px;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.player-track {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.play {
-    position: absolute;
-    margin-left: 100px;
-}
-
-.player-container svg{
-    position: absolute;
-    height: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-90deg);
 }
 
 .time-display{
@@ -52,12 +25,10 @@
 
 video{
     position: fixed;
-    top: 0;
+    top: 60px;
     left: 0;
     width: 100%;
-    z-index: -10;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-radius: 6px;
 }
 
 .time-select button, .sound-picker button{

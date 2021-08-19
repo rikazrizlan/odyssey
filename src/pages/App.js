@@ -2,7 +2,6 @@ import React, {useRef, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import { Button, makeStyles, Modal} from '@material-ui/core';
 import MeditationImg from '../images/meditation.png';
-import HikingImg from '../images/hiking2.png';
 import Logo from '../images/logo.png';
 import {useAuth} from '../contexts/AuthContext';
 import {db} from '../firebase';

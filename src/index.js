@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import ELearning from './pages/ELearning';
+import Meditate from './pages/Meditate';
 
 ReactDOM.render(
   <Router>
@@ -17,6 +19,8 @@ ReactDOM.render(
           <Route path="/app" component={App} />
           <PrivateRoute exact path="/home" component={Home} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/learn" component={ELearning} />
+          <Route exact path="/meditate" component={Meditate} />
         </Switch>
     </AuthProvider>
   </Router>,
