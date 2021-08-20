@@ -134,6 +134,7 @@ header {
   border: none;
   border-radius: 3px;
   color: #FAFAFA;
+  pointer-events: none;
 }
 
 .post-form .btn-container .btn-2 {
@@ -352,11 +353,13 @@ form .btn {
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   width: 100%;
   background: #FFF;
-  height: 100vh;
+  height: 300vh;
   z-index: 1;
   transition: 0.5s ease;
+  border: 1px solid black;
 }
 
 .bucket-wrapper {

@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
-import { storage, db } from '../firebase';
+import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
 import '../App.css';
 import { Link } from 'react-router-dom';
@@ -11,13 +11,14 @@ function AddPost() {
     const [profileImage, setProfileImage] = useState();
     const { currentUser } = useAuth();
 
-    // useEffect(() => {
-    //     db.collection('users').doc(currentUser?.uid).onSnapshot((doc) => {
-    //         setProfileImage(doc?.data()?.profileImage);
-    //     })
-    // }, []);
+    useEffect(() => {
+        db.collection('users').doc(currentUser?.uid).onSnapshot((doc) => {
+            setProfileImage(doc?.data()?.profileImage);
+        })
+    });
 
-    const handleUpload = () => {
+    const handleUpload = (e) => {
+        e.preventDefault();
         //post text into db
         db.collection("posts").add({
             timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -32,7 +33,7 @@ function AddPost() {
     return (
         <div className="post-upload">
             {
-                // profileImage ?
+                profileImage ?
                     <>
                         <center>Share your thoughts</center>
                         <form className="post-form">
@@ -40,16 +41,16 @@ function AddPost() {
                                 <textarea className="txt-area" onChange={event => setCaption(event.target.value)} value={caption}></textarea>
                             </div>
                             <div className="btn-container">
-                            <button className="cancel-btn">Cancel</button>
-                                <button className="input-btn btn-2" onClick={handleUpload}>Post</button>
+                                <button className="cancel-btn">Cancel</button>
+                                <button className="input-btn btn-2" onClick={e => handleUpload(e)}>Post</button>
                             </div>
                         </form>
-                    </> 
-                    // :
-                    // <>
-                    //     <center>To start posting you need a profile picture</center>
-                    //     <Link style={{ textDecoration: "none", marginLeft: 70 }} to="/profile"><Button variant="contained" color="primary">Profile</Button></Link>
-                    // </>
+                    </>
+                    :
+                    <>
+                        <center>To start posting you need a profile picture</center>
+                        <Link style={{ textDecoration: "none", marginLeft: 70 }} to="/profile"><Button variant="contained" color="primary">Profile</Button></Link>
+                    </>
             }
         </div>
     )

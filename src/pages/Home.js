@@ -9,13 +9,18 @@ function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection('posts').orderBy('timeStamp', 'desc').onSnapshot(snapshot => {
-      setPosts(snapshot.docs.map(doc => ({
-        id: doc.id,
-        post: doc.data()
-      })));
-    })
-  }, []);
+    getPosts();
+   }, []);
+ 
+   const getPosts = () => {
+     db.collection('posts').orderBy('timeStamp', 'desc').onSnapshot(snapshot => {
+       setPosts(snapshot.docs.map(doc => ({
+         id: doc?.id,
+         post: doc?.data()
+       })));
+     })
+   }
+ 
 
   return (
     <div className="home">

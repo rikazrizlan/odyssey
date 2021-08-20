@@ -11,7 +11,7 @@ function BucketList() {
     const { currentUser } = useAuth();
 
     useEffect(() => {
-        db.collection('bucketList').orderBy('timeStamp', 'asc').onSnapshot(snapshot => {
+        db.collection('bucketList').orderBy('timeStamp', 'desc').onSnapshot(snapshot => {
             setListItems(snapshot.docs.map(doc => ({
               id: doc?.id,
               listItem: doc?.data()

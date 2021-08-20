@@ -16,6 +16,12 @@ function Navbar() {
     const [openNav, setOpenNav] = useState(false);
     const history = useHistory();
 
+    useEffect(() => {
+        db.collection('users').doc(currentUser?.uid).onSnapshot((doc) => {
+            setProfileImage(doc?.data()?.profileImage);
+        })
+    });
+
     async function handleLogout() {
         setError("");
         try {
@@ -26,14 +32,9 @@ function Navbar() {
         }
     }
 
-    useEffect(() => {
-        db.collection('users').doc(currentUser?.uid).onSnapshot((doc) => {
-            setProfileImage(doc?.data()?.profileImage);
-        })
-    }, []);
-
     return (
         <div>
+            <h5>{error}</h5>
             <div className="home-header">
                 <Link to="/home"><img className="logo" src={Logo} alt="Nomads" /></Link>
                 <div className="home-header-left">

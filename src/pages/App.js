@@ -4,7 +4,6 @@ import { Button, makeStyles, Modal} from '@material-ui/core';
 import MeditationImg from '../images/meditation.png';
 import Logo from '../images/logo.png';
 import {useAuth} from '../contexts/AuthContext';
-import {db} from '../firebase';
 import '../App.css';
 
 function getModalStyle() {
@@ -147,6 +146,7 @@ function App() {
 
       {/* Home banner */}
       <section className="banner" id="banner">
+          <h5>{error}</h5>
           <div className="content"> 
             <div className="info">
               <h2>Get Connected With Your Inner Core.</h2>

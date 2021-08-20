@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PostsGrid from '../components/ProfileComponents/PostsGrid';
 import ProfileHeader from '../components/ProfileComponents/ProfileHeader';
 import Navbar from '../components/Navbar';
