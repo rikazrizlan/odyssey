@@ -10,7 +10,8 @@ function AddBucketList({ setOpen, open }) {
     const [bucketList, setBucketList] = useState("");
     const { currentUser } = useAuth();
 
-    const handleUpload = () => {
+    const handleUpload = (e) => {
+        e.preventDefault();
         db.collection('bucketList').add({
             timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
             bucketItem: bucketList,
@@ -27,7 +28,7 @@ function AddBucketList({ setOpen, open }) {
                 <form className="bucket-form">
                     <div className="bucket-input">
                         <input onChange={event => setBucketList(event.target.value)} value={bucketList} />
-                        <span className="input-btn" onClick={handleUpload}>+</span>
+                        <span className="input-btn" onClick={e => handleUpload(e)}>+</span>
                     </div>
                 </form>
                 <BucketList />

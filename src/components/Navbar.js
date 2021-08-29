@@ -38,7 +38,7 @@ function Navbar() {
             <div className="home-header">
                 <Link to="/home"><img className="logo" src={Logo} alt="Nomads" /></Link>
                 <div className="home-header-left">
-                    <Avatar src={profileImage ? profileImage : ""} style={{ cursor: "pointer" }} onClick={() => setOpenNav(!openNav)} />
+                    <Avatar src={profileImage ? profileImage : ""} style={{ cursor: "pointer", marginRight: -90 }} onClick={() => setOpenNav(!openNav)} />
                     {
                         openNav && (
                             <div className="home-navigation">

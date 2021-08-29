@@ -25,7 +25,6 @@ function Home() {
   return (
     <div className="home">
       <Navbar />
-     
       <div className="home-posts">
       <AddPost />
         {

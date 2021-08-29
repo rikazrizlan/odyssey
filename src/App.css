@@ -108,7 +108,8 @@ header {
 }
 
 .post-form {
-  height: 35vh;
+  height: 20vh;
+  width: 100%;
 }
 
 .progress-bar {
@@ -134,7 +135,6 @@ header {
   border: none;
   border-radius: 3px;
   color: #FAFAFA;
-  pointer-events: none;
 }
 
 .post-form .btn-container .btn-2 {
@@ -152,15 +152,17 @@ center {
   max-height: 100px;
   max-width: 100%;
   font-size: 16px;
+  outline: none;
+  border-radius: 5px;
 }
 
-form .form-group {
+.post-form .form-group {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 10px;
 }
 
-form .form-group input {
+.post-form .form-group input {
   padding: 10px;
   border: 1px solid #4d4d4d;
 }

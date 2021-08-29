@@ -1,10 +1,8 @@
-import { Button } from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
 import '../App.css';
-import { Link } from 'react-router-dom';
 
 function AddPost() {
     const [caption, setCaption] = useState("");
@@ -20,6 +18,7 @@ function AddPost() {
     const handleUpload = (e) => {
         e.preventDefault();
         //post text into db
+        caption &&
         db.collection("posts").add({
             timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
             caption: caption,
@@ -32,26 +31,16 @@ function AddPost() {
 
     return (
         <div className="post-upload">
-            {
-                profileImage ?
-                    <>
-                        <center>Share your thoughts</center>
-                        <form className="post-form">
-                            <div className="form-group">
-                                <textarea className="txt-area" onChange={event => setCaption(event.target.value)} value={caption}></textarea>
-                            </div>
-                            <div className="btn-container">
-                                <button className="cancel-btn">Cancel</button>
-                                <button className="input-btn btn-2" onClick={e => handleUpload(e)}>Post</button>
-                            </div>
-                        </form>
-                    </>
-                    :
-                    <>
-                        <center>To start posting you need a profile picture</center>
-                        <Link style={{ textDecoration: "none", marginLeft: 70 }} to="/profile"><Button variant="contained" color="primary">Profile</Button></Link>
-                    </>
-            }
+            <center>Share your thoughts</center>
+                <div className="post-form">
+                    <div className="form-group">
+                        <textarea className="txt-area" onChange={event => setCaption(event.target.value)} value={caption}></textarea>
+                    </div>
+                    <div className="btn-container">
+                        <button className="cancel-btn" onClick={() => setCaption("")}>Cancel</button>
+                        <button className="input-btn btn-2" onClick={e => handleUpload(e)}>Post</button>
+                        </div>
+                </div>
         </div>
     )
 }
