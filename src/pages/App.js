@@ -150,7 +150,7 @@ function App() {
           <div className="content"> 
             <div className="info">
               <h2>Get Connected With Your Inner Core.</h2>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id alias optio pariatur, quia laudantium sapiente nam quaerat illo veritatis voluptates itaque cupiditate ipsum exercitationem consectetur, vel qui iste provident placeat.</p>
+              <p>Share your thoughts, learn exciting stuff and meditate!</p>
               <Button variant="contained" color="secondary" onClick={() => setOpen(true)}>Get Started</Button>
             </div>
             <img src={MeditationImg} alt="Meditating"/>

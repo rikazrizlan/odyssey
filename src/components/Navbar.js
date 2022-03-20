@@ -22,7 +22,7 @@ function Navbar() {
         })
     });
 
-    async function handleLogout() {
+    const handleLogout = async() => {
         setError("");
         try {
             await logout();

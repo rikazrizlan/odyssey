@@ -21,6 +21,12 @@ function BucketList() {
 
     const userBucketList = listItems?.filter((item) => item?.listItem.username === currentUser?.displayName);
 
+    const deleteItem = async(e) => {
+        const res = await db.collection('bucketList').doc(`cSAdHbs6vLK1wCqGPo7d`).delete();
+        console.log(e.id);
+        console.log(res);
+    }
+
     return (
         <div className="bucket-list-container">
             <ul className="bucket-list">
@@ -30,7 +36,7 @@ function BucketList() {
                         <div className="list-item" key={id}>
                             <li className={index === id ?"list-completed":""}>{item?.listItem?.bucketItem}</li>
                             <Done onClick={() => setIndex(id)} className="done-btn" />
-                            <Delete  style={{color: "white", background: "rgb(163, 48, 48)", borderRadius: 3}} />
+                            <Delete onClick={() => deleteItem(item.id)}  style={{color: "white", background: "rgb(163, 48, 48)", borderRadius: 3}} data-id={`${id}`} />
                         </div>
                     ))
                 }

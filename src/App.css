@@ -112,11 +112,21 @@ header {
   width: 100%;
 }
 
+form {
+  height: 20vh;
+  width: 100%;
+}
+
 .progress-bar {
   margin-left: 35px;
 }
 
 .post-form .btn-container {
+  width: 200px;
+  margin-top: 15px;
+}
+
+form .btn-container {
   width: 200px;
   margin-top: 15px;
 }
@@ -138,6 +148,10 @@ header {
 }
 
 .post-form .btn-container .btn-2 {
+  margin-left: 6px;
+}
+
+form .btn-container .btn-2 {
   margin-left: 6px;
 }
 
@@ -163,6 +177,17 @@ center {
 }
 
 .post-form .form-group input {
+  padding: 10px;
+  border: 1px solid #4d4d4d;
+}
+
+form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+form .form-group input {
   padding: 10px;
   border: 1px solid #4d4d4d;
 }
@@ -520,7 +545,7 @@ form .btn {
   background: #FAFAFA;
   box-shadow: 0px 146px 301px rgba(0, 0, 0, 0.00627293), 0px 70.0611px 161.499px rgba(0, 0, 0, 0.01003), 0px 50.2001px 115.641px rgba(0, 0, 0, 0.0129306), 0px 36.9442px 86.8083px rgba(0, 0, 0, 0.016152), 0px 25.2423px 61.0519px rgba(0, 0, 0, 0.0214916), 0px 13.2337px 33.0022px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  width: 70%;
+  width: 270px;
 }
 
 .learning-container img {

@@ -3,23 +3,34 @@ import { db } from '../firebase';
 import Post from '../components/Post';
 import Navbar from '../components/Navbar';
 import AddPost from '../components/AddPost';
+import { useAuth } from '../contexts/AuthContext';
 import '../App.css';
 
 function Home() {
   const [posts, setPosts] = useState([]);
+  const [profileImage, setProfileImage] = useState();
+  const { currentUser } = useAuth();
 
-  useEffect(() => {
-    getPosts();
-   }, []);
- 
-   const getPosts = () => {
+  const getPosts = () => {
      db.collection('posts').orderBy('timeStamp', 'desc').onSnapshot(snapshot => {
        setPosts(snapshot.docs.map(doc => ({
          id: doc?.id,
          post: doc?.data()
        })));
      })
-   }
+    }
+
+   const getProfileImage = () => {
+    db.collection('users').doc(currentUser?.uid).onSnapshot((doc) => {
+      setProfileImage(doc?.data()?.profileImage);
+    })
+  }
+
+  
+  useEffect(() => {
+    getPosts();
+    getProfileImage();
+   }, []);
  
 
   return (
@@ -29,7 +40,7 @@ function Home() {
       <AddPost />
         {
           posts.map(({ id, post }) => (
-            <Post username={post?.username} key={id} profileImage={post?.profileImage} caption={post?.caption} />
+            <Post id={id} username={post?.username} key={id} profileImage={currentUser?.displayName !== post?.username ? post?.profileImage : profileImage} caption={post?.caption} />
           ))
         }
       </div>
